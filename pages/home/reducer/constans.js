@@ -1,0 +1,4 @@
+export default {
+  FETCH_BEERS: "FETCH_BEERS",
+  SELECT_FILTERS: "SELECT_FILTERS",
+};
