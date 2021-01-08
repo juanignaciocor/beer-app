@@ -1,9 +1,9 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
-import s from "./filters.module.scss";
+import s from "../../styles.module.scss";
 const FilterComponent = () => {
   return (
-    <div className={s.container}>
+    <div className={s.containerFilters}>
       <div>Puedes encontrar tu mejor birra !</div>
       <div>
         <Dropdown>

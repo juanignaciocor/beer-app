@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.card {
+  width: 375px !important ;
+  margin-top: 16px !important;
+  margin-bottom: 16px !important ;
+}
