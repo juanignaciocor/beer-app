@@ -1,9 +1,15 @@
 import React from "react";
+import Header from "../Header/header"
+import Footer from "../Footer/footer"
+
 
 const Wrapper = ({ children }) => {
   return (
-    <div style={{ padding: "1rem", display: "flex", flexDirection: "column" }}>
+    <div className='pagecontainer'>
+      <Header/>
+
       {children}
+      <Footer/>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.containerFilters {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.containerBeers {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+
+.cardImg {
+  width: 375px;
+  height: 375px;
+  object-fit: contain;
+}

@@ -1,0 +1,18 @@
+.singleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.singleCard{
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px;
+
+}
+.cardimage{
+    margin: 50px 0 0 0;
+max-width: 100px;
+align-self: center;
+}
