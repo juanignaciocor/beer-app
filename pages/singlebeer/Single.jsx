@@ -88,13 +88,13 @@ let fakeBeer = [
   }
 ];
 
-const Single = () => {
+const Single = (props) => {
   const [selectedBeer, setSelectedBeer] = useState(false);
   const [openFood, setOpenFood] = useState(false);
   const [openTips, setOpenTips] = useState(false);
   useEffect(() => {
     if (!selectedBeer) {
-      setSelectedBeer(fakeBeer);
+      setSelectedBeer(props.displayBeer);
     }
   });
 
