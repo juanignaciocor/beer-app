@@ -5,6 +5,7 @@ const initialState = {
   queryParams: {
     page: 1,
     per_page: 12,
+    beer_name: "",
   },
 };
 
@@ -14,7 +15,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, beers: action.payload };
     }
     case types.SELECT_FILTERS: {
-      return { ...state, ...state.queryParams, ...action.payload };
+      return {
+        ...state,
+        queryParams: { ...state.queryParams, ...action.payload },
+      };
     }
     default:
       return state;

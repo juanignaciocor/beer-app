@@ -17,3 +17,26 @@
   height: 375px;
   object-fit: contain;
 }
+
+.randomIcon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  height: 40px;
+  width: 40px;
+}
+.containerSearch {
+  padding: 0px 14px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  width: 20%;
+  div {
+    margin-bottom: 0px !important;
+  }
+}
+.boxDropdown {
+  padding: 0px 14px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
