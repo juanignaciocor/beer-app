@@ -1,50 +1,73 @@
 import React, { useEffect } from "react";
 import { Card, Button, Pagination } from "react-bootstrap";
+import Link from "next/link";
 import s from "../../styles.module.scss";
-const Beers = ({ beers, page, per_page, selectedFilters }) => {
-  console.log(beers, "esto es beers");
+import { useRouter } from "next/router";
+
+const Beers = ({ beers, page, per_page, selectedFilters, random }) => {
+  const route = useRouter();
   return (
-    <div className={s.containerBeers}>
-      {beers &&
-        beers.map((beer) => {
-          return (
-            <Card style={{ width: "18rem" }} key={beer.id}>
-              <img className={s.cardImg} src={beer.image_url}></img>
-              <Card.Body>
-                <Card.Title>{beer.name}</Card.Title>
-                <Card.Text>{beer.tagline}</Card.Text>
-                <Card.Text>First Brewed: {beer.first_brewed}</Card.Text>
-                <Card.Text>Abv: {beer.abv}</Card.Text>
-                <Button variant="primary">Go Drink</Button>
-              </Card.Body>
-            </Card>
-          );
-        })}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div className={s.containerBeers}>
+        {beers &&
+          beers.map((beer) => {
+            return (
+              <Card style={{ width: "18rem" }} key={beer.id}>
+                <Link href={`/singlebeer/${beer.id}`}>
+                  <img className={s.cardImg} src={beer.image_url}></img>
+                </Link>
+                <Card.Body>
+                  <Card.Title>{beer.name}</Card.Title>
+                  <Card.Text>{beer.tagline}</Card.Text>
+                  <Card.Text>First Brewed: {beer.first_brewed}</Card.Text>
+                  <Card.Text>Abv: {beer.abv}</Card.Text>
+                  <Button
+                    variant="primary"
+                    onClick={() => route.push(`/singlebeer/${beer.id}`)}
+                  >
+                    Go Drink
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+      </div>
       <PaginationComponent
         beers={beers}
         page={page}
         per_page={per_page}
         selectedFilters={selectedFilters}
+        random={random}
       />
     </div>
   );
 };
 
-const PaginationComponent = ({ beers, per_page, page, selectedFilters }) => {
+const PaginationComponent = ({
+  beers,
+  per_page,
+  page,
+  selectedFilters,
+  random,
+}) => {
   let size = 400 / per_page;
-  console.log(Math.trunc(size), "size");
 
   return (
-    <div>
+    <div style={{ display: !random ? "block" : "none" }}>
       <Pagination>
         {beers.map((data, number) => {
           return (
             <Pagination.Item
               key={number}
               active={number === page}
-              onClick={() =>
-                selectedFilters({ target: { name: "page", value: number } })
-              }
+              onClick={() => selectedFilters("page", number)}
             >
               {number}
             </Pagination.Item>
